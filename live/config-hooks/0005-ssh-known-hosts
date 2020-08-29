@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+LIVE_MEDIUM="$(mount | grep -Po '(?<= on ).+(?= type iso9660)' | head -n 1)"
+
+cp -f "$LIVE_MEDIUM/live/ssh-known-hosts" "/etc/ssh/ssh_known_hosts"
+chown root:root "/etc/ssh/ssh_known_hosts"
+chmod 644 "/etc/ssh/ssh_known_hosts"
